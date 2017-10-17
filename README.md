@@ -1,23 +1,7 @@
-[linuxserverurl]: https://linuxserver.io
-[forumurl]: https://forum.linuxserver.io
-[ircurl]: https://www.linuxserver.io/irc/
-[podcasturl]: https://www.linuxserver.io/podcast/
-[appurl]: https://www.ubnt.com/enterprise/#unifi
-[hub]: https://hub.docker.com/r/linuxserver/unifi/
+# sollie/docker-unifi
 
-[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
-
-The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io][forumurl]
-* [IRC][ircurl] on freenode at `#linuxserver.io`
-* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
-
-# linuxserver/unifi
-[![](https://images.microbadger.com/badges/version/linuxserver/unifi.svg)](https://microbadger.com/images/linuxserver/unifi "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/unifi.svg)](https://microbadger.com/images/linuxserver/unifi "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/unifi.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/unifi.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-unifi)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-unifi/)
-
-The UniFi® Controller software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance. [Unifi](https://www.ubnt.com/enterprise/#unifi)
-
-[![unifi](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png)][appurl]
+Beta versions and release candidates of unifi controller.
+Forked from linuxserver/unifi
 
 ## Usage
 
@@ -26,6 +10,7 @@ docker create \
   --name=unifi \
   -v <path to data>:/config \
   -e PGID=<gid> -e PUID=<uid>  \
+  -e 3478:3478 \
   -p 8080:8080 \
   -p 8081:8081 \
   -p 8443:8443 \
@@ -42,7 +27,8 @@ So -p 8080:80 would expose port 80 from inside the container to be accessible fr
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
 
 
-* `-p 8080` - port(s) required for Unifi to function
+* `-p 3478` - port(s) required for Unifi to function
+* `-p 8080` - port(s)
 * `-p 8081` - port(s)
 * `-p 8443` - port(s)
 * `-p 8843` - port(s)
@@ -95,6 +81,7 @@ Use `ubnt` as the password to login and `$address` is the IP address of the host
 
 ## Versions
 
++ **2017-10-17:** Update to 5.6.19-17e4cda571
 + **05.10.17:** Update to 5.5.24.
 + **03.08.17:** Update to 5.5.20.
 + **15.07.17:** Update to 5.5.19 and switch to using .deb package, no need to keep up with the unifi repo merry-go-round.
