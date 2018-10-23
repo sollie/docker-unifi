@@ -42,7 +42,7 @@ RUN \
 COPY root/ /
 
 RUN mv /usr/lib/unifi/webapps/ROOT/app-unifi/css /config/css
-RUN ln -sf /confnig/css /usr/lib/unifi/webapps/ROOT/app-unifi/css
+RUN ln -sf /config/css /usr/lib/unifi/webapps/ROOT/app-unifi/css
 
 # Volumes and Ports
 WORKDIR /usr/lib/unifi
