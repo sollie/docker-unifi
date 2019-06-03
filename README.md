@@ -16,7 +16,7 @@ docker create \
   -p 8443:8443 \
   -p 8843:8843 \
   -p 8880:8880 \
-  linuxserver/unifi
+  sollie/docker-unifi
 ```
 
 ## Parameters
