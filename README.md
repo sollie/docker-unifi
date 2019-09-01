@@ -16,7 +16,7 @@ docker create \
   -p 8443:8443 \
   -p 8843:8843 \
   -p 8880:8880 \
-  linuxserver/unifi
+  sollie/docker-unifi
 ```
 
 ## Parameters
@@ -82,6 +82,9 @@ Use `ubnt` as the password to login and `$address` is the IP address of the host
 ## Versions
 
 + **2019-09-01:** Update to 5.11.39
++ **2019-08-10:** Update to 5.10.26
++ **2019-06-20:** Update to 5.10.25
++ **2019-06-01:** Update to 5.10.24
 + **2019-05-16:** Update to 5.10.23
 + **2019-04-21:** Update to 5.10.21
 + **2019-02-17:** Update to 5.10.17
