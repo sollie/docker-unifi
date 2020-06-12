@@ -17,7 +17,7 @@ RUN curl -o /tmp/key.asc https://www.mongodb.org/static/pgp/server-3.6.asc && \
     echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" >> /etc/apt/sources.list.d/mongodb-org-3.6.list && \
     apt-get update && \
     apt-get install -y apt-transport-https && \
-    apt-get install -y binutils jsvc mongodb-org-server openjdk-8-jre-headless \
+    apt-get install -y logrotate binutils jsvc mongodb-org-server openjdk-8-jre-headless \
     wget && \
     curl -o /tmp/unifi.deb -L "http://dl.ubnt.com/unifi/${UNIFI_VER}/unifi_sysvinit_all.deb" && \
     dpkg -i /tmp/unifi.deb && \
