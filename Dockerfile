@@ -12,7 +12,8 @@ ARG UNIFI_VER="5.13.29"
 ARG DEBIAN_FRONTEND="noninteractive"
 
 # add mongo repo
-RUN apt-key adv --fetch-keys https://www.mongodb.org/static/pgp/server-3.6.asc && \
+RUN curl -o /tmp/key.asc https://www.mongodb.org/static/pgp/server-3.6.asc && \
+    apt-key add /tmp/key.asc && \
     echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" >> /etc/apt/sources.list.d/mongodb-org-3.6.list && \
     apt-get update && \
     apt-get install -y binutils jsvc mongodb-org-server openjdk-8-jre-headless \
