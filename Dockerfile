@@ -12,29 +12,15 @@ ARG UNIFI_VER="5.13.29"
 ARG DEBIAN_FRONTEND="noninteractive"
 
 # add mongo repo
-RUN \
- apt-key adv --fetch https://www.mongodb.org/static/pgp/server-3.6.asc && \
- echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" >> /etc/apt/sources.list.d/mongodb-org-3.6.list && \
-
-# install packages
- apt-get update && \
- apt-get install -y \
-	binutils \
-	jsvc \
-	mongodb-org-server \
-	openjdk-8-jre-headless \
-	wget && \
-# install unifi
- curl -o \
- /tmp/unifi.deb -L\
-	"http://dl.ubnt.com/unifi/${UNIFI_VER}/unifi_sysvinit_all.deb" && \
- dpkg -i /tmp/unifi.deb && \
-# cleanup
- apt-get clean && \
- rm -rf \
-	/tmp/* \
-	/var/lib/apt/lists/* \
-	/var/tmp/*
+RUN apt-key adv --fetch-keys https://www.mongodb.org/static/pgp/server-3.6.asc && \
+    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" >> /etc/apt/sources.list.d/mongodb-org-3.6.list && \
+    apt-get update && \
+    apt-get install -y binutils jsvc mongodb-org-server openjdk-8-jre-headless \
+    wget && \
+    curl -o /tmp/unifi.deb -L "http://dl.ubnt.com/unifi/${UNIFI_VER}/unifi_sysvinit_all.deb" && \
+    dpkg -i /tmp/unifi.deb && \
+    apt-get clean && \
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # add local files
 COPY root/ /
