@@ -6,7 +6,7 @@ ARG VERSION
 LABEL build_version="${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package versions
-ARG UNIFI_VER="6.0.41"
+ARG UNIFI_VER="6.0.43"
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
